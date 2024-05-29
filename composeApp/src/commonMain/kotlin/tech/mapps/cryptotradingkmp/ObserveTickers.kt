@@ -17,7 +17,7 @@ class ObserveTickersImpl(
     private val refreshInterval: Duration = 5.seconds,
 ) : ObserveTickers {
     override fun invoke(): Flow<Either<Unit, ImmutableList<Ticker>>> =
-        tickerFlow(period = refreshInterval, initialDelay = ZERO)
+        intervalFlow(interval = refreshInterval, initialDelay = ZERO)
             .mapLatest { getTickers() }
 
     private suspend fun getTickers() =
