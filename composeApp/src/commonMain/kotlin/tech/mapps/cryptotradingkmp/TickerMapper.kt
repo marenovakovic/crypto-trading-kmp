@@ -6,7 +6,7 @@ fun TickerDto.toTicker() =
     Ticker(
         ticker = symbol.tickerSymbol,
         price = lastTradePrice.roundToTwoDecimalsWithCurrency(),
-        change24hPercentage = dailyChangePercentage.percentage,
+        change24hPercentage = dailyChangePercentage.percentage.toFloatOrNull() ?: 0f,
     )
 
 private val String.tickerSymbol
@@ -15,11 +15,5 @@ private val String.tickerSymbol
 private const val currency = "USD"
 
 expect fun Float.roundToTwoDecimalsWithCurrency(currency: String = "USD"): String
-//    roundToTwoDecimals().toString() + " $currency"
-
-expect fun Float.roundToTwoDecimals(): Float
-//    toBigDecimal().setScale(2, RoundingMode.HALF_DOWN)
-
-expect val Float.percentage: Float
-//    get() = this
-//    get() = "%.2f".format(this * 100).toFloat()
+expect fun Float.roundToTwoDecimals(): String
+expect val Float.percentage: String
