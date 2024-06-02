@@ -6,6 +6,7 @@ import org.jetbrains.kotlin.gradle.plugin.KotlinSourceSetTree
 
 plugins {
     alias(libs.plugins.multiplatform)
+    alias(libs.plugins.cocoapods)
     alias(libs.plugins.compose.compiler)
     alias(libs.plugins.compose)
     alias(libs.plugins.android.application)
@@ -13,6 +14,19 @@ plugins {
 }
 
 kotlin {
+    cocoapods {
+        version = "1.0"
+        summary = "Some description for a Kotlin/Native module"
+        homepage = "Link to a Kotlin/Native module homepage"
+
+        name = "shared"
+
+        framework {
+            baseName = "shared"
+            isStatic = false
+        }
+    }
+
     androidTarget {
         compilations.all {
             compileTaskProvider {
@@ -80,6 +94,8 @@ kotlin {
 
             implementation(libs.kotlinx.datetime)
             implementation(libs.kotlinx.immutable.collections)
+
+            implementation(libs.multiplatform.connectivity.status)
         }
 
         commonTest.dependencies {
