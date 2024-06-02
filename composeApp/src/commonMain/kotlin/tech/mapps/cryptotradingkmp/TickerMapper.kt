@@ -6,7 +6,7 @@ fun TickerDto.toTicker() =
     Ticker(
         ticker = symbol.tickerSymbol,
         price = lastTradePrice.roundToTwoDecimalsWithCurrency(),
-        change24hPercentage = dailyChangePercentage.percentage.toFloatOrNull() ?: 0f,
+        change24hPercentage = dailyChangePercentage.percentage.toFloat(),
     )
 
 private val String.tickerSymbol
