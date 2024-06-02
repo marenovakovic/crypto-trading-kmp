@@ -16,8 +16,8 @@ plugins {
 kotlin {
     cocoapods {
         version = "1.0"
-        summary = "Some description for a Kotlin/Native module"
-        homepage = "Link to a Kotlin/Native module homepage"
+        summary = "KMP module"
+        homepage = ""
 
         name = "shared"
 
@@ -95,7 +95,7 @@ kotlin {
             implementation(libs.kotlinx.datetime)
             implementation(libs.kotlinx.immutable.collections)
 
-            implementation(libs.multiplatform.connectivity.status)
+//            implementation(libs.multiplatform.connectivity.status)
         }
 
         commonTest.dependencies {
