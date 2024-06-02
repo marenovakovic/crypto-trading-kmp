@@ -18,6 +18,7 @@ kotlin {
         version = "1.0"
         summary = "KMP module"
         homepage = ""
+        ios.deploymentTarget = "16.2"
 
         name = "shared"
 
